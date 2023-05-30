@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Student Registration Form
+        </title>
+        <link href="studentform.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+          
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-info">
+            <a class="text-center navbar-brand mx-auto" href="#">STUDENT ENROLLMENT FORM</a>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <hr>
+                <div id="bg-background" class="col-6">
+                      <form onsubmit="event.default();SubmitForm();">
+                    <label class="form" for="name">Name:</label><br>
+                    <input class="form" id="name" type="text" required><br>
+                    <label class="form" for="mail">Mail:</label><br>
+                    <input class="form" id="mail" type="email" required><br>
+                    <label class="form" for="web">Website:</label><br>
+                    <input class="form" id="web" type="url"><br>
+                    <label class="form" for="im">Image:</label><br>
+                    <input class="form" id="im" type="url" src=""><br>
+                    <label class="form" for="gender">Gender</label>
+                    <input type="radio" id="gender" name="Gender" class="form">Male
+                    <input type="radio" id="gender" name="Gender" class="form">Female<br>
+                    <label class="form" for="skills">Skills:</label><br>
+                    <input type="checkbox" id="skills"class="form">Java<br>
+                    <input type="checkbox" id="skills"class="form">HTML<br>
+                    <input type="checkbox" id="skills"class="form">CSS<br>
+                    <button class="form" type="submit" id="enroll">Enroll </button>
+                    <button class="form" type="submit" id="clear" onclick="clear()">Clear</button>
+                </div>
+            </form>
+                <div class="col-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3>Enrolled Students</h3>
+                        </div>
+                        <div class="panel-body table-responsive">
+                            <table class="table" border="3px">
+                                <tr>
+                                    <th>Description</th>
+                                    <th>Image</th>                       
+                                </tr>
+                                <tbody>
+                                <tr ng-repeat="i in carts" ng-init="setTotals(i)">
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                               
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function clear()
+            {
+                document.getElementById("name").value="";
+                document.getElementById("mail").value="";
+                document.getElementById("web").value="";
+                document.getElementById("im").value="";
+                document.getElementById("gender").value="";
+                document.getElementById("skills").value="";
+            }
+            function valid()
+            {
+                isValid=true;
+                if(document.getElementById("name").value=="")
+                {
+                    isValid=false;
+                }
+                else
+                {
+                    isValid=true;
+                }
+            }
+
+            function SubmitForm()
+            {
+                if(valid())
+                {
+                    var fodaa=read();
+                    if(sel==null)
+                    {
+                        new(foda);
+                    }
+                    else
+                    {
+                        update(foda);
+                    }
+                    resetForm();
+                }
+            }
+            function new(d)
+            {
+                document.getElementById("name").innerHTML=d.name;
+                document.getElementById("mail").innerHTML=d.mail;
+                
+                document.getElementById("gender").innerHTML=d.
+                
+            }
+            function read()
+            {
+                var foda={};
+                foda["name"]=document.getElementById("name").value;
+                foda["mail"]=document.getElementById("mail").value;
+                foda["web"]=document.getElementById("web").value;
+                foda["im"]=document.getElementById("im").value;
+                foda["gender"]=document.getElementById("gender").value;
+                foda["skills"]=document.getElementById("skills").value;
+                return foda;
+            }
+            function new(d)
+            {
+
+            }
+        </script>
+    </body>
+</html>
