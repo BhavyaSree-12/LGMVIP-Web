@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            To Do List
+        </title>
+        <link type="text/css" rel="stylesheet" href="todolist.css">
+        
+    </head>
+  <center><body>
+        <div class="container">
+            <div class="he">
+                <h1 class="text-primary">My To Do List</h1>
+            </div>
+            <div id="newtask">
+                <input type="text" placeholder="Enter tasks to do...">
+                <button id="add">Add</button>
+            </div>
+            <div id="tasks"></div>        
+        </div>        
+    </body></center>  
+    <script>
+        document.querySelector('#add').onclick = function(){
+            if(document.querySelector('#newtask input').value.length == 0){
+                alert("Kindly Enter Tasks to do !!")
+            }
+        
+            else{
+                document.querySelector('#tasks').innerHTML += `
+                    <div class="task">
+                        <span id="taskname">
+                            ${document.querySelector('#newtask input').value}
+                        </span>
+                        <button  class="delete" type="button" ng-click="remove(i)" class="btn btn-danger">X
+                            <i class="far fa-trash-alt"></i></button>
+                    </div>
+                `;
+        
+                var current_tasks = document.querySelectorAll(".delete");
+                for(var i=0; i<current_tasks.length; i++){
+                    current_tasks[i].onclick = function(){
+                        this.parentNode.remove();
+                    }
+                }
+            }
+        }
+            
+        </script>
+</html>
